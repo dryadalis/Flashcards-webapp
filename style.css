@@ -1,0 +1,15 @@
+:root { background-color: #57b2f8}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*CARD*/
+.card {
+    position: relative;
+    margin: 1% auto auto auto;
+    width: 400px;
+    min-height: 450px;
+    background-color: #e2e8ff;
+    border-radius: 12px;
+}
