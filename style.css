@@ -7,7 +7,7 @@ body {
 
 .sg-text-bit, .sg-text {
     text-align: center;
-    margin: 40px;
+    margin: 30px;
 }
 .card__scoreHeader {
     display: flex;
@@ -55,10 +55,10 @@ body {
     transform: scale(1.1);
 }
 .card__buttons {
-    padding: 40px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    min-height: 350px;
+    min-height: 200px;
 }
 
     /*CARD*/
@@ -67,11 +67,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    position: relative;
-    margin: 1% auto auto auto;
+    margin: 0 auto auto auto;
     width: 500px;
-    height: 580px;
+    height: 525px;
     background-color: #b4efc2;
     border-radius: 12px;
     font-size: 25px;
