@@ -4,26 +4,21 @@ body {
     padding: 0;
 }
 
-/*START CARD*/
 
-.startCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: 1% auto auto auto;
-    width: 500px;
-    height: 550px;
-    background-color: #b4efc2;
-    border-radius: 12px;
-    font-size: 25px;
-}
 .sg-text-bit, .sg-text {
     text-align: center;
     margin: 40px;
 }
-.startButton {
+.card__scoreHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+}
+
+/*BUTTONS*/
+.btn {
     background-color: transparent;
     outline: none;
     border: 2px solid white;
@@ -33,7 +28,40 @@ body {
     color: #020a1b;
     font-weight: bold;
 }
-    /*CARDS*/
+.btn--start:hover, .btn--restart:hover {
+    border: 2px solid #7a8adb;
+    color: #7a8adb;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+.btn--left:hover, .btn--right:hover {
+    border: 2px solid #ff796b;
+    transform: scale(1.1);
+}
+.card__buttons {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+}
+
+    /*CARD*/
 .card {
     display: flex;
     flex-direction: column;
@@ -43,13 +71,13 @@ body {
     position: relative;
     margin: 1% auto auto auto;
     width: 500px;
-    height: 590px;
+    height: 580px;
     background-color: #b4efc2;
     border-radius: 12px;
     font-size: 25px;
 }
 
-.startCard--hidden {
+.card--hidden {
     display: none;
 }
 
@@ -57,45 +85,20 @@ body {
     animation: turn 0.8s ease forwards;
 }
 
-.card__buttons {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    min-height: 350px;
-
-}
-/*BUTTONS*/
-#btn-left {
-    background-color: transparent;
-    outline: none;
-    border: 2px solid white;
-    margin: 15px;
-    width: 250px;
-    height: 70px;
-    color: #020a1b;
-    font-weight: bold;
-}
-
-#btn-right {
-    background-color: transparent;
-    outline: none;
-    border: 2px solid white;
-    margin: 15px;
-    width: 250px;
-    height: 70px;
-    color: #020a1b;
-    font-weight: bold;
-}
-
-#btn-right:hover, #btn-left:hover {
-    border: 2px solid #ff796b;
-    transform: scale(1.1);
-
-}
-
 @keyframes turn {
     0%{transform: rotateY(0deg)}
     100%{transform: rotateY(360deg)}
+}
+
+
+/*SCORES*/
+.row {
+   display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 5px;
+    font-size: 17px;
 }
 
 .sg-header-primary {
@@ -113,12 +116,11 @@ body {
         border-radius: 0;
     }
 
-    #btn-right {
+    .btn--right, .btn--left {
         width: 250px;
         height: 90px;
     }
-    #btn-left {
-        width: 250px;
-        height: 90px;
+    .card__scores {
+        font-size: 20px;
     }
 }

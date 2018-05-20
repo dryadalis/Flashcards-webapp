@@ -8,24 +8,22 @@ const splashCard = document.getElementById('splashCard');
 const resultCard = document.getElementById('resultCard');
 
 
-
-
 const getQuestions = () => {
     fetch('https://gist.githubusercontent.com/vergilius/6d869a7448e405cb52d782120b77b82c/raw/e75dc7c19b918a9f0f5684595899dba2e5ad4f43/history-flashcards.json')
         .then(response => response.json())
-        .then(function (data) {
-            splashCard.classList.remove('startCard--hidden');
+        .then(data => {
+            splashCard.classList.remove('card--hidden');
             questions = data;
             round();
 
         })
         .catch(error => {
             console.error(`Error: ${error}`);
-    })
+        })
 }
 
 const getFirstQuestion = (data) => {
-     return data.shift();
+    return data.shift();
 }
 
 const showCard = (card) => {
@@ -45,27 +43,24 @@ const showCard = (card) => {
     btnRight.innerHTML = secondAnswer;
 
 
-    btnRight.setAttribute('onclick', `answerQuestion(${isSecondAnswerCorrect})`)
+    btnRight.setAttribute('onclick', `answerQuestion(${isSecondAnswerCorrect})`);
     btnLeft.setAttribute('onclick', `answerQuestion(${isFirstAnswerCorrect})`);
 }
 
 const round = () => {
-    if(questions.length > 0) {
+    if (questions.length > 0) {
         question = getFirstQuestion(questions);
         showCard(question);
     } else {
         const lastCard = document.getElementById('card');
-        if(questions.length < 1) {
-            lastCard.classList.add("startCard--hidden")
-            resultCard.classList.remove("startCard--hidden")
+        lastCard.classList.add("card--hidden");
+        resultCard.classList.remove("card--hidden");
 
-            let keys = Object.keys(scores);
+        let keys = Object.keys(scores);
 
-            keys.forEach(key => {
-               resultCard.innerHTML += `${key} : ${scores[question.question]}`;
-            });
-
-        }
+        keys.forEach(key => {
+            document.getElementById('scores').innerHTML += `<div class="row"><div>${key}</div><div>${scores[key]}</div></div>`;
+        });
     }
 }
 
@@ -75,13 +70,14 @@ const incorrect = () => {
 }
 
 const answerQuestion = (correct) => {
-    if(!(question.question in scores)) {
+    if (!(question.question in scores)) {
         scores[question.question] = 1;
     } else {
         scores[question.question] = scores[question.question] += 1;
+
     }
 
-    if(correct) {
+    if (correct) {
         round();
         flipEffect();
     } else {
@@ -92,17 +88,17 @@ const answerQuestion = (correct) => {
 
 const flipEffect = () => {
     let elm = document.getElementById('card');
-    let newone = elm.cloneNode(true)
+    let newone = elm.cloneNode(true);
     elm.parentNode.replaceChild(newone, elm);
-    newone.classList.add('turn')
+    newone.classList.add('turn');
 }
 
 const startScreen = () => {
     const firstCard = document.getElementById('splashCard');
-    firstCard.classList.add("startCard--hidden");
+    firstCard.classList.add("card--hidden");
 
     const card = document.getElementById('card');
-    card.classList.remove("startCard--hidden");
+    card.classList.remove("card--hidden");
     flipEffect();
 }
 
@@ -110,8 +106,11 @@ const startScreen = () => {
 btnStart.addEventListener('click', startScreen);
 
 const restartQuiz = () => {
-    document.getElementById('resultCard').classList.add('startCard--hidden');
+    document.getElementById('resultCard').classList.add('card--hidden');
+    document.getElementById('scores').innerHTML = '';
+    scores = {};
     getQuestions();
+
 }
 
 restartButton.addEventListener('click', restartQuiz);
