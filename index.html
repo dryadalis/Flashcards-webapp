@@ -9,9 +9,45 @@
     <link href="https://styleguide.brainly.com/134.2.1/style-guide.css" rel="stylesheet"/>
 </head>
 <body>
+<!--LOGO-->
 <div class="sg-logo">
+    <a href="https://brainly.com" target="_blank">
     <img class="sg-logo__image" src="https://styleguide.brainly.com/images/logos/brainly-761d75d6ea.svg">
+    </a>
 </div>
+<!--SPLASH SCREEN-->
+<div class="startCard--hidden startCard" id="splashCard">
+    <div>
+    <h1 class="sg-text-bit sg-text-bit--gray">Want to learn something new?</h1>
+    </div>
+
+    <div class="sg-text sg-text--large">Click start !</div>
+
+    <button class='startButton' id="btn-start">START</button>
+</div>
+<!--CARDS WITH QUESTIONS-->
+<div class="card startCard--hidden" id="card">
+    <div class="card__question">
+        <h2 class="sg-header-primary" id="questionCard"></h2>
+    </div>
+
+    <div class="card__buttons">
+        <button  id="btn-right"></button>
+        <svg class="sg-icon sg-icon--x24">
+            <use xlink:href="#icon-check"></use>
+        </svg>
+        <button  id="btn-left"></button>
+    </div>
+
+</div>
+<!--RESULTS-->
+<div class="card startCard--hidden" id="resultCard">
+
+    <button id="restartButton">Try once again!</button>
+</div>
+
+
+
 <script src="script.js"></script>
 </body>
 </html>

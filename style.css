@@ -4,12 +4,121 @@ body {
     padding: 0;
 }
 
-/*CARD*/
-.card {
+/*START CARD*/
+
+.startCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     margin: 1% auto auto auto;
-    width: 400px;
-    min-height: 450px;
-    background-color: #e2e8ff;
+    width: 500px;
+    height: 550px;
+    background-color: #b4efc2;
     border-radius: 12px;
+    font-size: 25px;
+}
+.sg-text-bit, .sg-text {
+    text-align: center;
+    margin: 40px;
+}
+.startButton {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    margin: 15px;
+    width: 250px;
+    height: 70px;
+    color: #020a1b;
+    font-weight: bold;
+}
+    /*CARDS*/
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    margin: 1% auto auto auto;
+    width: 500px;
+    height: 590px;
+    background-color: #b4efc2;
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.startCard--hidden {
+    display: none;
+}
+
+.turn {
+    animation: turn 0.8s ease forwards;
+}
+
+.card__buttons {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+
+}
+/*BUTTONS*/
+#btn-left {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    margin: 15px;
+    width: 250px;
+    height: 70px;
+    color: #020a1b;
+    font-weight: bold;
+}
+
+#btn-right {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    margin: 15px;
+    width: 250px;
+    height: 70px;
+    color: #020a1b;
+    font-weight: bold;
+}
+
+#btn-right:hover, #btn-left:hover {
+    border: 2px solid #ff796b;
+    transform: scale(1.1);
+
+}
+
+@keyframes turn {
+    0%{transform: rotateY(0deg)}
+    100%{transform: rotateY(360deg)}
+}
+
+.sg-header-primary {
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-color: #b4efc2;
+    }
+    .card, .startCard {
+        height: 100vh;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #btn-right {
+        width: 250px;
+        height: 90px;
+    }
+    #btn-left {
+        width: 250px;
+        height: 90px;
+    }
 }
